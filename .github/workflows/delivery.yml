@@ -18,6 +18,7 @@ on:
 env:
   TAG_ARM64: latest-arm64
   TAG_AMD64: latest-amd64
+  VERSION: ${{ github.event.inputs.tag_name }}
 
 jobs:
   delivery:
@@ -40,7 +41,7 @@ jobs:
 
       - name: Get tag name from inputs
         run: |
-          echo "Tag Name: ${{ github.event.inputs.tag_name }}"
+          echo "Tag Name: $VERSION"
 
       - name: Build docker image
         env:
